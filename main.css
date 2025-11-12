@@ -509,11 +509,7 @@ output[name="information"].error {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    bottom: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    margin: auto;
     box-shadow: 0 0 4px gray;
     border: none;
 }
