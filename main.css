@@ -255,6 +255,13 @@ form textarea:focus {
     box-shadow: 0 0 5px var(--secondary-color, black)
 }
 
+form input:user-invalid,
+form textarea:user-invalid{
+    outline: none;
+    border-color: darkred;
+    box-shadow: 0 0 5px red
+}
+
 button {
     padding: 1em 3em;
     border-radius: var(--default-border-radius);
@@ -448,4 +455,32 @@ ol {
     font-size: 1.2em;
     font-weight: bold;
     min-height: 4em
+}
+
+output[name="errors"] {
+  display: block;
+  color: red;
+  font-weight: bold;
+  margin-top: 0.5em;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+output[name="information"].warning {
+  color: orange;
+}
+
+output[name="information"].error {
+  color: red;
+}
+
+.flash {
+  animation: flashBorder 0.3s ease;
+  animation-iteration-count: 2;
+}
+
+@keyframes flashBorder {
+  0% { box-shadow: 0 0 0px red; }
+  50% { box-shadow: 0 0 10px red; }
+  100% { box-shadow: 0 0 0px red; }
 }
