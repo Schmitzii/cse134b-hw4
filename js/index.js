@@ -7,14 +7,17 @@ function enableDarkmode() {
 }
 
 function disableDarkmode() {
-    console.log("rarara");
     document.body.classList.remove('darkmode');
     localStorage.setItem('darkmode', null);
 }
 
-if(darkmode === "active") enableDarkmode()
+if (darkmode === "active") enableDarkmode()
 
 themeSwitch.addEventListener("click", () => {
     darkmode = localStorage.getItem('darkmode')
-    darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+    if (document.startViewTransition) {
+        document.startViewTransition(() => {
+            darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+        });
+    }
 });

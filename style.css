@@ -13,13 +13,13 @@
     --timestamp-color2: rgb(49 90 92);
 }
 
-body{
+body {
     background-color: var(--base-color);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--text-color);
 }
 
-.darkmode{
+.darkmode {
     --base-color: black;
     --base-variant: rgb(29, 29, 29);
     --text-color: white;
@@ -73,10 +73,9 @@ main {
 
 main>section {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    
 }
 
-.darkmode main>section{
+.darkmode main>section {
     background-color: var(--base-variant);
 }
 
@@ -195,7 +194,7 @@ project-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
-.darkmode project-card{
+.darkmode project-card {
     border: none;
 }
 
@@ -271,7 +270,7 @@ form textarea:focus {
 }
 
 form input:user-invalid,
-form textarea:user-invalid{
+form textarea:user-invalid {
     outline: none;
     border-color: darkred;
     box-shadow: 0 0 5px red
@@ -473,34 +472,42 @@ ol {
 }
 
 output[name="errors"] {
-  display: block;
-  color: red;
-  font-weight: bold;
-  margin-top: 0.5em;
-  transition: opacity 0.5s ease;
-  opacity: 0;
+    display: block;
+    color: red;
+    font-weight: bold;
+    margin-top: 0.5em;
+    transition: opacity 0.5s ease;
+    opacity: 0;
 }
 
 output[name="information"].warning {
-  color: orange;
+    color: orange;
 }
 
 output[name="information"].error {
-  color: red;
+    color: red;
 }
 
 .flash {
-  animation: flashBorder 0.3s ease;
-  animation-iteration-count: 2;
+    animation: flashBorder 0.3s ease;
+    animation-iteration-count: 2;
 }
 
 @keyframes flashBorder {
-  0% { box-shadow: 0 0 0px red; }
-  50% { box-shadow: 0 0 10px red; }
-  100% { box-shadow: 0 0 0px red; }
+    0% {
+        box-shadow: 0 0 0px red;
+    }
+
+    50% {
+        box-shadow: 0 0 10px red;
+    }
+
+    100% {
+        box-shadow: 0 0 0px red;
+    }
 }
 
-#theme-switch{
+#theme-switch {
     height: 2.5em;
     width: 2.5em;
     padding: 0;
@@ -514,18 +521,35 @@ output[name="information"].error {
     border: none;
 }
 
-#theme-switch svg{
+#theme-switch svg {
     fill: var(--primary-color)
 }
 
-#theme-switch svg:last-child{
+#theme-switch svg:last-child {
     display: none;
 }
 
-.darkmode #theme-switch svg:first-child{
+.darkmode #theme-switch svg:first-child {
     display: none;
 }
 
-.darkmode #theme-switch svg:last-child{
+.darkmode #theme-switch svg:last-child {
     display: block
+}
+
+/* Make the transition use a fade effect */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: fade 0.4s ease;
+}
+
+/* The actual fade keyframes */
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
